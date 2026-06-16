@@ -326,11 +326,11 @@ const HealthFacts = () => {
 
           <CardHeader className="pb-2">
             <div className="flex items-start justify-between gap-4">
-              <div className="space-y-1 flex-1">
-                <Badge className={`bg-gradient-to-r ${currentFact.color} text-white border-0 text-xs`}>
+              <div className="space-y-1 flex-1 min-w-0">
+                <Badge className={`bg-gradient-to-r ${currentFact.color} text-white border-0 text-xs truncate max-w-full`}>
                   {currentFact.emoji} {currentFact.category}
                 </Badge>
-                <CardTitle className="text-xl leading-snug">{currentFact.hook}</CardTitle>
+                <CardTitle className="text-xl leading-snug break-words">{currentFact.hook}</CardTitle>
               </div>
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${currentFact.color} flex items-center justify-center flex-shrink-0 text-2xl`}>
                 {currentFact.emoji}
@@ -340,12 +340,12 @@ const HealthFacts = () => {
 
           <CardContent className="space-y-4">
             {/* The fact */}
-            <p className="text-base leading-relaxed text-foreground">{currentFact.fact}</p>
+            <p className="text-base leading-relaxed text-foreground break-words">{currentFact.fact}</p>
 
             {/* Mind-blown callout */}
-            <div className="flex items-start gap-2 p-3 rounded-lg bg-primary/10 border border-primary/20">
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-primary/10 border border-primary/20 min-w-0 w-full">
               <span className="text-lg flex-shrink-0">🤯</span>
-              <p className="text-sm text-foreground leading-relaxed">{currentFact.mindBlown}</p>
+              <p className="text-sm text-foreground leading-relaxed break-words min-w-0 flex-1">{currentFact.mindBlown}</p>
             </div>
 
             {/* Actions row */}
@@ -423,8 +423,8 @@ const HealthFacts = () => {
                 <div className="flex items-start gap-2">
                   <span className="text-lg flex-shrink-0">{fact.emoji}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold">{fact.hook}</p>
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{fact.fact}</p>
+                    <p className="text-sm font-semibold break-words">{fact.hook}</p>
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2 break-words">{fact.fact}</p>
                   </div>
                   <button onClick={() => handleSave(fact.id)} className="text-muted-foreground hover:text-destructive transition-colors flex-shrink-0">
                     ×
