@@ -320,7 +320,7 @@ const HealthFacts = () => {
 
       {/* Current Fact Card */}
       {currentFact && (
-        <Card className={`border-2 bg-gradient-to-br from-background to-accent/20 overflow-hidden`}>
+        <Card className={`border-2 bg-gradient-to-br from-background to-accent/20 overflow-hidden w-full min-w-0 max-w-full`}>
           {/* Coloured top bar */}
           <div className={`h-1.5 w-full bg-gradient-to-r ${currentFact.color}`} />
 
@@ -349,45 +349,47 @@ const HealthFacts = () => {
             </div>
 
             {/* Actions row */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <Button
-                variant="outline"
-                size="sm"
-                className={`gap-1.5 ${liked.has(currentFact.id) ? "text-red-500 border-red-500" : ""}`}
-                onClick={() => handleLike(currentFact.id)}
-              >
-                <ThumbsUp className="w-4 h-4" />
-                {liked.has(currentFact.id) ? "Liked" : "Like"}
-              </Button>
+            <div className="flex flex-col sm:flex-row items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className={`gap-1.5 w-full sm:w-auto h-auto whitespace-normal ${liked.has(currentFact.id) ? "text-red-500 border-red-500" : ""}`}
+                  onClick={() => handleLike(currentFact.id)}
+                >
+                  <ThumbsUp className="w-4 h-4 flex-shrink-0" />
+                  {liked.has(currentFact.id) ? "Liked" : "Like"}
+                </Button>
 
-              <Button
-                variant="outline"
-                size="sm"
-                className={`gap-1.5 ${saved.has(currentFact.id) ? "text-primary border-primary" : ""}`}
-                onClick={() => handleSave(currentFact.id)}
-              >
-                <Bookmark className="w-4 h-4" />
-                {saved.has(currentFact.id) ? "Saved" : "Save"}
-              </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className={`gap-1.5 w-full sm:w-auto h-auto whitespace-normal ${saved.has(currentFact.id) ? "text-primary border-primary" : ""}`}
+                  onClick={() => handleSave(currentFact.id)}
+                >
+                  <Bookmark className="w-4 h-4 flex-shrink-0" />
+                  {saved.has(currentFact.id) ? "Saved" : "Save"}
+                </Button>
 
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-1.5"
-                onClick={() => handleShare(currentFact)}
-              >
-                <Share2 className="w-4 h-4" />
-                Share
-              </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-1.5 w-full sm:w-auto h-auto whitespace-normal"
+                  onClick={() => handleShare(currentFact)}
+                >
+                  <Share2 className="w-4 h-4 flex-shrink-0" />
+                  Share
+                </Button>
+              </div>
 
               <a
                 href={`https://en.wikipedia.org/wiki/${currentFact.wikiTopic}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-auto"
+                className="w-full sm:w-auto sm:ml-auto"
               >
-                <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground">
-                  <ExternalLink className="w-3.5 h-3.5" />
+                <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground w-full h-auto whitespace-normal justify-center sm:justify-start">
+                  <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                   Read more
                 </Button>
               </a>
@@ -408,7 +410,7 @@ const HealthFacts = () => {
 
       {/* Saved Facts */}
       {savedFacts.length > 0 && (
-        <Card>
+        <Card className="w-full min-w-0 max-w-full overflow-hidden">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Bookmark className="w-5 h-5 text-primary" />
@@ -435,7 +437,7 @@ const HealthFacts = () => {
       )}
 
       {/* Recent History */}
-      <Card>
+      <Card className="w-full min-w-0 max-w-full overflow-hidden">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <BookOpen className="w-5 h-5" />

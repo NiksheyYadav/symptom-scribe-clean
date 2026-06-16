@@ -294,7 +294,7 @@ const AIHealthAssistant = () => {
   const hasMessages = messages.length > 0 || loading;
 
   return (
-    <div className="flex flex-col h-full bg-background text-foreground overflow-hidden w-full">
+    <div className="flex flex-col h-full bg-background text-foreground w-full min-w-0">
       {/* Header */}
       <div className="flex-shrink-0 px-5 py-3 border-b border-border flex items-center justify-end gap-3">
         <div className="flex items-center gap-1.5 flex-shrink-0">
